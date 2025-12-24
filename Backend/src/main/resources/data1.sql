@@ -1,4 +1,0 @@
-INSERT INTO product(name, description, brand, price, category, release_date, is_available, quantity) VALUES ('Tata Naxon', 'A compact SUV with excillent safety features and performance', 'Tata Motors', 750000.00, 'Cars', '2025-01-11', true, 10),
-('Maruti Sizuki swift', 'A populat hatchback known for effuciency and reliability', 'Maruti Suzuku', 550000.00, 'Cars', '2025-06-11', true, 12),
-('Tata Naxon', 'A compact SUV with excillent safety features and performance', 'Tata Motors', 750000.00, 'Cars', '2025-11-11', true, 15),
-('Thar', 'A compact SUV with excillent safety features and performance', 'Tata Motors', 750000.00, 'Cars', '2025-01-11', true, 10) ;
