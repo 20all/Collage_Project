@@ -1,10 +1,13 @@
 import './App.css'
+import Navigation from './components/navigation/Navigation'
 
 function App() {
 
   return (
     <>
-     <h1>Hello</h1>
+    <div className="App">
+      <Navigation />
+    </div>
     </>
   )
 }
