@@ -1,0 +1,10 @@
+package com._all.ByaparKarobar.enums;
+
+public enum OrderStatus {
+    PENDING,
+    CONFIRMED,
+    SHIPPED,
+    DELIVERED,
+    CNCELLED,
+    RETURNED
+}

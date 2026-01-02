@@ -1,3 +1,22 @@
 spring:
   application:
     name: ByaparKarobar
+
+# database connection
+  datasource:
+    url: jdbc:postgresql://localhost:5432/bk_app
+    username: postgres
+    password: bishal
+
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+      dialect: org.hibernate.dialect.PostgreSQLDialect
+      format-sql: true
+
+logging:
+  level:
+    org.springframework.web: DEBUG
+server:
+  port: 9090
