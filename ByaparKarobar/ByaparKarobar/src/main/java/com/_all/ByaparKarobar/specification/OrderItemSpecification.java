@@ -8,6 +8,7 @@ import java.time.LocalDateTime;
 
 public class OrderItemSpecification {
 
+    /** specification to filter order items by status    */
     public static Specification<OrderItem> hasStatus(OrderStatus status) {
         return ((root, query, criteriaBuilder) ->
                 status != null ?
@@ -15,6 +16,7 @@ public class OrderItemSpecification {
                         : null);
     }
 
+    /** Specification to filter order items by item data range*/
     public static Specification<OrderItem> createdBetween(LocalDateTime startDate, LocalDateTime endDate) {
         return ((root, query, criteriaBuilder) -> {
             if(startDate != null && endDate != null) {
@@ -29,10 +31,11 @@ public class OrderItemSpecification {
         });
     }
 
+    /** Generate Specification to filter orderitems by item id*/
     public static Specification<OrderItem> hasItemId(Long itemId) {
         return ((root, query, criteriaBuilder) ->
                 itemId != null ?
-                        criteriaBuilder.equal(root.get("id"), itemId) 
+                        criteriaBuilder.equal(root.get("id"), itemId)
                         : null);
     }
 }
