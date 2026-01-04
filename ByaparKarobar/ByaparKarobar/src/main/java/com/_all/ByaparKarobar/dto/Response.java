@@ -29,7 +29,7 @@ public class Response {
     private UserDto user;
     private List<UserDto> userList;
 
-    private Category category;
+    private CategoryDto category;
     private List<CategoryDto> categoryList;
 
     private ProductDto product;
