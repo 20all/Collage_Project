@@ -34,6 +34,8 @@ public class OrderItemController {
         return ResponseEntity.ok(orderItemService.updateOrderItemStatus(orderItemId, status));
     }
 
+    @GetMapping("/filter")
+    @PreAuthorize("hasAuthority('MERCHANT')")
     public ResponseEntity<Response> filterOrderItems(
             @RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)LocalDateTime startDate,
             @RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)LocalDateTime endDate,
