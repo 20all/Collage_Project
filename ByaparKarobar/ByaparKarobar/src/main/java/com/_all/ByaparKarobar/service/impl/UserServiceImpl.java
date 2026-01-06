@@ -34,7 +34,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public Response registerUser(UserDto registrationRequest) {
         UserRole role = UserRole.USER;
-        if (registrationRequest.getRole() != null && registrationRequest.getRole().equalsIgnoreCase("admim")) {
+        if (registrationRequest.getRole() != null && registrationRequest.getRole().equalsIgnoreCase("merchant")) {
             role = UserRole.MERCHANT;
         }
         User user = User.builder()

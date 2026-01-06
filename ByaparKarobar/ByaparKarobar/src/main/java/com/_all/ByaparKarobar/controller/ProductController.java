@@ -33,7 +33,7 @@ public class ProductController {
         return ResponseEntity.ok(productService.createProduct(categoryId, image, name, description, price));
     }
 
-    @PostMapping("/update/{productId}")
+    @PutMapping("/update/{productId}")
     @PreAuthorize("hasAuthority('MERCHANT")
     public ResponseEntity<Response> updateProduct(
             @PathVariable Long productId,
@@ -52,7 +52,7 @@ public class ProductController {
         return ResponseEntity.ok(productService.deleteProduct(productId));
     }
 
-    @GetMapping("/get-all-product-id/{productId}")
+    @GetMapping("/get-by-product-id/{productId}")
     public ResponseEntity<Response> getProductById(@PathVariable Long productId) {
         return ResponseEntity.ok(productService.getProductById(productId));
     }

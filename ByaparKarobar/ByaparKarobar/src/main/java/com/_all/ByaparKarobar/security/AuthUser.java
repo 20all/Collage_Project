@@ -20,7 +20,8 @@ public class AuthUser implements UserDetails {
 
     @Override
     public @Nonnull Collection<? extends GrantedAuthority> getAuthorities() { // here I have used @NonNull annotation since the ide was hinting me to do so
-        return List.of(new SimpleGrantedAuthority("ROLE_"+user.getRole().name()));
+//        return List.of(new SimpleGrantedAuthority("ROLE_"+user.getRole().name())); // this is from chatGPT
+        return List.of(new SimpleGrantedAuthority(user.getRole().name()));
     }
 
     @Override
