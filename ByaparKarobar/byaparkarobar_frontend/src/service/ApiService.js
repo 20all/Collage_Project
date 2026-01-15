@@ -24,7 +24,7 @@ export default class ApiService {
     }
 
     static async getLoggedInUserInfo() {
-        const response = await axios.post(`${this.BASE_URL}/auth/my-info`, {
+        const response = await axios.get(`${this.BASE_URL}/auth/my-info`, {
             headers: this.getHeader()
         })
         return response.data
@@ -146,7 +146,7 @@ export default class ApiService {
     }
 
     static async updateOrderItemStatus(orderItemId, status) {
-        const response = await axios.get(`${this.BASE_URL}/order/update-item-status/${orderItemId}`, {
+        const response = await axios.put(`${this.BASE_URL}/order/update-item-status/${orderItemId}`, null, {
             headers: this.getHeader(),
             params: {status}
         })
