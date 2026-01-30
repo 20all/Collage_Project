@@ -1,0 +1,11 @@
+.home {
+    padding: 20px;
+}
+
+.error-message {
+    color: red;
+    font-weight: bold;
+    text-align: center;
+    font-size: 20px;
+    margin-top: 20px;
+}

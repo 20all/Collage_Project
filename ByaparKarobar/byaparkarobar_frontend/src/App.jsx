@@ -6,6 +6,7 @@ import { CartProvider } from './components/context/CartContext'
 import Navbar from './components/common/Navbar'
 import Footer from './components/common/Footer'
 
+
 function App() {
 
   return (
@@ -14,10 +15,10 @@ function App() {
       <BrowserRouter>
         <CartProvider>
           <Navbar />
-          {/* <Routes> */}
+          <Routes> 
             {/* OUR ROUTES */}
-            
-          {/* </Routes> */}
+            <Route path="/*" element={<Navigate to="/home" />} />
+          </Routes>
           <Footer />
         </CartProvider>
       </BrowserRouter>

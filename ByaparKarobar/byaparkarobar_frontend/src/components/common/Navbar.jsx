@@ -30,7 +30,7 @@ const Navbar = () => {
     return (
         <nav className="navbar">
             <div className="navbar-brand">
-                <NavLink to="/"> <img src="./BK.svg" alt="ByaparKarobar" srcset="" /> </NavLink>
+                <NavLink to="/"> <img src="./BK.svg" alt="ByaparKarobar" srcSet="" /> </NavLink>
             </div>
             {/* SEARCH FORM */}
             <form action="" className="navbar-search" onSubmit={handleSearchSubmit}>
@@ -42,11 +42,11 @@ const Navbar = () => {
             </form>
 
             <div className="navbar-link">
-                <NavLink to="/" activeClassName="active">Home</NavLink>
-                <NavLink to="/categories" activeClassName="active">Categories</NavLink>
-                {isAuthenticated && <NavLink to="/profile" activeClassName="active">My Account</NavLink>}
-                {isMerchant && <NavLink to="/merchant" activeClassName="active">Merchant</NavLink>}
-                {!isAuthenticated && <NavLink to="/login" activeClassName="active">Login</NavLink>}
+                <NavLink to="/" className={({ isActive }) => (isActive ? "active" : "")}>Home</NavLink>
+                <NavLink to="/categories" className={({ isActive }) => (isActive ? "active" : "")}>Categories</NavLink>
+                {isAuthenticated && <NavLink to="/profile" className={({ isActive }) => (isActive ? "active" : "")}>My Account</NavLink>}
+                {isMerchant && <NavLink to="/merchant" className={({ isActive }) => (isActive ? "active" : "")}>Merchant</NavLink>}
+                {!isAuthenticated && <NavLink to="/login" className={({ isActive }) => (isActive ? "active" : "")}>Login</NavLink>}
                 {isAuthenticated && <NavLink onClick={handleLogout}>Logout</NavLink>}
                 <NavLink to="/cart">Cart</NavLink>
             </div>
