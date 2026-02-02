@@ -5,6 +5,7 @@ import lombok.Data;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Objects;
 
 @Data
 @Entity
@@ -22,4 +23,23 @@ public class Category {
 
     @Column(name = "created_at")
     private final LocalDateTime createdAt = LocalDateTime.now();
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Category category)) return false;
+        return Objects.equals(id, category.id) &&
+                Objects.equals(name, category.name) &&
+                category.canEqual(this);
+    }
+
+    public boolean canEqual(Object other) {
+        return other instanceof Category;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name);
+    }
 }
