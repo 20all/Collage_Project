@@ -6,6 +6,9 @@ import { CartProvider } from './components/context/CartContext'
 import Navbar from './components/common/Navbar'
 import Footer from './components/common/Footer'
 
+import Home from './components/pages/Home'
+import ProductDetailsPage from './components/pages/ProductDetailsPage'
+
 
 function App() {
 
@@ -17,7 +20,9 @@ function App() {
           <Navbar />
           <Routes> 
             {/* OUR ROUTES */}
-            <Route path="/*" element={<Navigate to="/home" />} />
+            {/* <Route path="/*" element={<Navigate to="/home" />} /> */}
+            <Route path="/" element={<Home />} />
+            <Route path="/product/:productId" element={<ProductDetailsPage />} />
           </Routes>
           <Footer />
         </CartProvider>

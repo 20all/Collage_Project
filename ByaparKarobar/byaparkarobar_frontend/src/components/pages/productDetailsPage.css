@@ -1,6 +1,6 @@
 .product-details {
     max-width: 350px;
-    max-width: 50px auto 10rem auto;
+    margin: 10rem auto 10rem auto;
     padding: 20px;
     border: 1px solid #ddd;
     border-radius: 10px;
@@ -11,7 +11,7 @@
 }
 
 .product-details img {
-    width: 100%;
+    width: 350px;
     height: auto;
     border-radius: 10px;
 }
