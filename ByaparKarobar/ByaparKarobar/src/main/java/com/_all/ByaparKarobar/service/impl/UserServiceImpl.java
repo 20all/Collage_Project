@@ -65,6 +65,7 @@ public class UserServiceImpl implements UserService {
         return Response.builder()
                 .status(200)
                 .message("User Successfully Logged in")
+                .token(token)
                 .expirationTime("6 Month")
                 .role(user.getRole().name())
                 .build();
