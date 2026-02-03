@@ -27,12 +27,12 @@ const ProductList = ({products}) => {
             {products.map((product, index) => {
                 const cartItem = cart.find(item => item.id === product.id)
                 return (
-                    <div key={index} className="product-item">   
+                    <div key={product.id} className="product-item">   
                     <Link to={`/product/${product.id}`}>
                         <img src={product.imageUrl} alt={product.name} className="product-image"/>
                         <h3>{product.name}</h3>
                         <p>{product.description}</p>
-                        <span>${product.price.toFixed(2)}</span>
+                        <span>Rs.{Number(product.price).toFixed(2)}</span>
                     </Link>
                     {cartItem ? (
                         <div className="cart-controls">

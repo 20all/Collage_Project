@@ -19,7 +19,7 @@ public class ProductController {
     private final ProductService productService;
 
     @PostMapping("/create")
-    @PreAuthorize("hasAuthority('MERCHANT")
+    @PreAuthorize("hasAuthority('MERCHANT')")
     public ResponseEntity<Response> createProduct(
             @RequestParam Long categoryId,
             @RequestParam MultipartFile image,

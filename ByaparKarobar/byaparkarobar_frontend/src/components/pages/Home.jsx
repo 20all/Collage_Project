@@ -17,8 +17,10 @@ const Home = () => {
         const fetchProducts = async () => {
             try {
                 const params = new URLSearchParams(location.search)
-                const page = parseInt(params.get('page')) || 1
+                // const page = parseInt(params.get('page')) || 1
                 let allProducts = []
+                const searchItem = params.get('search') || ''
+                // setCurrentPage(page)
                 if(searchItem) {
                     const response = await ApiService.searchProducts(searchItem)
                     allProducts = response.productList || []    
@@ -28,10 +30,11 @@ const Home = () => {
                 }
                 setTotalPages(Math.ceil(allProducts.length / PRODUCTS_PER_PAGE))
                 setProducts(allProducts.slice((currentPage - 1) * PRODUCTS_PER_PAGE, currentPage * PRODUCTS_PER_PAGE))
-            } catch (err) {
+            } catch (error) {
                 setError(error.response?.data?.message || error.message || "Failed to fetch products. Please try again later.")
             }
         }
+        fetchProducts()
     },[location.search, currentPage])
 
     return (
