@@ -20,7 +20,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class CategoryDto {
-    private long id;
+    private Long id;
     private String name;
     private List<ProductDto> productList;
 //    private LocalDateTime createdAt;
