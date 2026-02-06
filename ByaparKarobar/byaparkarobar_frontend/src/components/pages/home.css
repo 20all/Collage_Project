@@ -9,3 +9,10 @@
     font-size: 20px;
     margin-top: 20px;
 }
+
+.error-image {
+    display: block;
+    margin: 20px auto;
+    max-width: 500px;
+    width: 100%;
+}

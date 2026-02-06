@@ -54,7 +54,7 @@ const ProductDetailsPage = () => {
             <img src={product?.imageUrl} alt={product?.name} />
             <h2>{product?.name}</h2>
             <p>{product?.description}</p>
-            <span>${product?.price.toFixed(2)}</span>
+            <span>Rs.{product?.price.toFixed(2)}</span>
             {cartItem ? (
                 <div className="cart-controls">
                     <button onClick={decrementItem}>-</button>

@@ -1,11 +1,12 @@
 .footer{
     position: fixed;
     border: 0;
+    bottom: 0;
     width: 100%;
     background-color: black;
     color: thistle;
     text-align: center;
-    padding: 10px 0;
+    padding: 1rem;
     z-index: 1000;
 }
 
@@ -35,3 +36,4 @@
     margin: 0 0;
     color: honeydew;
 }
+

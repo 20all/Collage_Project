@@ -30,7 +30,9 @@ const Navbar = () => {
     return (
         <nav className="navbar">
             <div className="navbar-brand">
-                <NavLink to="/"> <img src="./BK.svg" alt="ByaparKarobar" srcSet="" /> </NavLink>
+                {/* <NavLink to="/ByaparKarobar.com">  */}
+                <img src="./BK.svg" alt="ByaparKarobar" srcSet="" /> 
+                {/* </NavLink> */}
             </div>
             {/* SEARCH FORM */}
             <form action="" className="navbar-search" onSubmit={handleSearchSubmit}>

@@ -4,6 +4,7 @@ import { useLocation } from "react-router-dom";
 import Pagination from "../common/Pagiination";
 import ApiService from "../../service/ApiService";
 import ProductList from "../common/ProductList";
+// import {No_Connection_error} from '../public/serverNotConnected.png'
 
 const Home = () => {
     const location = useLocation()
@@ -41,7 +42,10 @@ const Home = () => {
         <div className="home">
             {
                 error ? (
+                    <div className="error-container">
+                    <img src="./serverNotConnected.png" alt="Connection Failed" className="error-image"/>
                     <p className="error-message">{error}</p>
+                    </div>
                 ) : (
                     <div>
                         <ProductList products={products} />
