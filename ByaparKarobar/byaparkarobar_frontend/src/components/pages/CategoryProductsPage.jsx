@@ -12,7 +12,7 @@ const CategoryProductsPage = () => {
     const [currentPage, setCurrentPage] = useState(1)
     const [totalPages, setTotalPages] = useState(0)
     const [error, setError] = useState(null)
-    const PRODUCTS_PER_PAGE = 8
+    const PRODUCTS_PER_PAGE = 10
 
     useEffect(() => {
         fetchCategoryProducts()
