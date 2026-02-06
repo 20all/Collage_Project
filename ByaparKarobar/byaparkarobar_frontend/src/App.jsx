@@ -8,6 +8,7 @@ import Footer from './components/common/Footer'
 
 import Home from './components/pages/Home'
 import ProductDetailsPage from './components/pages/ProductDetailsPage'
+import CategoryListPage from './components/pages/CategoryListPage'
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
             {/* <Route path="/*" element={<Navigate to="/home" />} /> */}
             <Route path="/" element={<Home />} />
             <Route path="/product/:productId" element={<ProductDetailsPage />} />
+            <Route path='/categories' element={<CategoryListPage />} />
           </Routes>
           <Footer />
         </CartProvider>
