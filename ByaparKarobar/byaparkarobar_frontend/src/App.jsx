@@ -11,6 +11,7 @@ import ProductDetailsPage from './components/pages/ProductDetailsPage'
 import CategoryListPage from './components/pages/CategoryListPage'
 import CategoryProductsPage from './components/pages/CategoryProductsPage'
 import CartPage from './components/pages/CartPage'
+import RegisterPage from './components/pages/RegisterPage'
 
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
             <Route path='category/:categoryId'element={<CategoryProductsPage />} />
             {/* <Route path='/cart' element={<ProtectedRoute><CartPage /></ProtectedRoute>} /> */}
             <Route path='/cart' element={<CartPage />} />
+            <Route path='/register' element={<RegisterPage />} />
           </Routes>
           <Footer />
         </CartProvider>

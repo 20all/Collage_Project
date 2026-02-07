@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useCart } from "../context/CartContext";
 import ApiService from "../../service/ApiService";
-import '../../style/cartPages.css'
+import '../../style/cartPage.css'
 
 const CartPage = () => {
     const navigate = useNavigate()
