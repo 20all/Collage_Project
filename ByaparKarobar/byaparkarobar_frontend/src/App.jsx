@@ -10,6 +10,7 @@ import Home from './components/pages/Home'
 import ProductDetailsPage from './components/pages/ProductDetailsPage'
 import CategoryListPage from './components/pages/CategoryListPage'
 import CategoryProductsPage from './components/pages/CategoryProductsPage'
+import CartPage from './components/pages/CartPage'
 
 
 function App() {
@@ -27,6 +28,8 @@ function App() {
             <Route path="/product/:productId" element={<ProductDetailsPage />} />
             <Route path='/categories' element={<CategoryListPage />} />
             <Route path='category/:categoryId'element={<CategoryProductsPage />} />
+            {/* <Route path='/cart' element={<ProtectedRoute><CartPage /></ProtectedRoute>} /> */}
+            <Route path='/cart' element={<CartPage />} />
           </Routes>
           <Footer />
         </CartProvider>

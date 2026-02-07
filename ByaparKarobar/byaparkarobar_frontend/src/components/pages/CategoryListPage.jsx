@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import ApiService from "../../service/ApiService";
-import './categoryListPage.css'
+import '../../style/categoryListPage.css'
 
 const CategoryListPage = () => {
     const [categories, setCategories] = useState([])

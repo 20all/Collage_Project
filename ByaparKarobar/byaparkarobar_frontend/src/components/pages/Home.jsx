@@ -1,5 +1,6 @@
 import React, {use, useEffect, useState} from "react";
-import './home.css'
+import '../../style/home.css'
+// import './home.css'
 import { useLocation } from "react-router-dom";
 import Pagination from "../common/Pagiination";
 import ApiService from "../../service/ApiService";

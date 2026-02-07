@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useCart } from "../context/CartContext";
-import'./productList.css'
+import '../../style/productList.css'
 
 const ProductList = ({products}) => {
     const {cart, dispatch} = useCart()

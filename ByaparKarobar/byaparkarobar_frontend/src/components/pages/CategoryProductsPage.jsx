@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import ApiService from "../../service/ApiService";
-import './categoryProductsPage.css'
-import './home.css'
+import '../../style/home.css'
 import ProductList from "../common/ProductList";
 import Pagination from "../common/Pagiination";
 
