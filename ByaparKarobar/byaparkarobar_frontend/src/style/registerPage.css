@@ -1,6 +1,6 @@
 .register-page {
     max-width: 400px;
-    min-width: 50px auto;
+    margin: 50px auto;
     padding: 20px;
     border: 1px solid #ddd;
     border-radius: 10px;
