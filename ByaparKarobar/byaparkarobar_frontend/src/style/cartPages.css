@@ -46,12 +46,13 @@
     font-size: 13px;
 }
 .cart-item button {
-    align-items: right;
+    align-items: center;
     background-color: #f68b8b;
     border: none;
     padding: 5px 10px;
     border-radius: 4px;
     cursor: pointer;
+    color: #fff;
 }
 .cart-item button:hover {
     background-color: #ff6f61;
@@ -71,7 +72,7 @@
     border: none;
     background-color: #f68b8b;
     cursor: pointer;
-    font-size: 18px;
+    font-size: 14px;
     border-radius: 4px;
 }
 .quantity-controls button:hover {
