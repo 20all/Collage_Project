@@ -29,12 +29,19 @@ body{
 .navbar-search button {
     padding: 10px 15px;
     margin-left: 5px;
-    background-color: #ff6f61;
-    color: white;
+    /* background-color: #ff6f61;
+    color: white; */
+    background-color: #fff;
+    color: #ff6f61;
     border: none;
     border-radius: 3px;
     cursor: pointer;
     font-weight: bold;
+}
+
+.navbar-search button:hover {
+     background-color: #ff6f61;
+    color: white;
 }
 
 .navbar-link a, li{

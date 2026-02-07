@@ -42,18 +42,20 @@
 .category-list button {
     width: 100%;
     font-size: 1.2rem;
+    font-weight: 700;
     margin-top: 10px;
     padding: 10px 15px;
-    background-color: #ff6f61;
-    color: #fff;
+    background-color: #f68b8b;
+    color: honeydew;
     border: none;
-    border-radius: 4px;
+    border-radius:4px;
     cursor: pointer;
     transition: background-color 0.2s ease-in-out;
 }
 
 .category-list button:hover {
-    background-color: #e65b50;
+    background-color: #ff6f61;
+    color: #fff;
     /* background-color: #cb3e31; */
 }
 

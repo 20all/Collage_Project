@@ -28,7 +28,7 @@ const CartPage = () => {
     }
     const handleCheckout = async () => {
         if (!ApiService.isAuthenticated()) {
-            setMessage("Please login first to proceed to checkout")
+            setMessage("Please login first to proceed to checkout !")
             setTimeout(() => {
                 setMessage(null)
                 navigate('/login')
@@ -69,7 +69,6 @@ const CartPage = () => {
     return (
         <div className="cart-page">
             <h2>Your Cart</h2>
-            {message && <p className="response-message">{message}</p>}
             <ul className="cart-items">
                 {cart.map(item => (
                     <li key={item.id} className="cart-item">   
@@ -89,6 +88,7 @@ const CartPage = () => {
                 ))}
             </ul>
             <div className="cart-summary">
+                {message && <p className="response-message">{message}</p>}
                 <h3>Total: Rs.{getTotalPrice().toFixed(2)}</h3>
                 <button onClick={handleCheckout} className="checkout-button">Checkout</button>
             </div>

@@ -39,6 +39,7 @@
 .item-details h3 {
     margin: 0 0 5px;
     font-size: 18px;
+    /* font-weight: bold; */
 }
 .item-details p {
     margin: 0 0 10px;
@@ -59,7 +60,7 @@
 }
 .price {
     font-size: 16px;
-    font-weight: bold;
+    font-weight: bold;  
     color: #000;
 }
 .quantity-controls {
@@ -89,19 +90,22 @@
 .cart-summary h3 {
     margin: 0 0 10px;
     font-size: 20px;
+    color: #000;
 }
 .checkout-button {
     width: 100%;
     padding: 10px 20px;
     background-color: #ff6f61;  
-    color: #fff;
+    color: honeydew;
     border: none;
     cursor: pointer;
     font-size: 16px;
     border-radius: 4px;
+    font-weight: 800;
 }
 .checkout-button:hover {
     background-color: #e65b50;
+    color: white;
 }
 .response-message {
     margin-bottom: 20px;
@@ -110,4 +114,6 @@
     color: #e43b07;
     border: 1px solid #c3e6cb;
     border-radius: 4px;
+    font-weight: 800;
+    text-align: center;
 }   

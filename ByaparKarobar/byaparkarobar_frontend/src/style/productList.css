@@ -62,7 +62,7 @@
 }
 
 .product-item button:hover{
-    background-color: #cb3e31;
+    background-color: #ff6f61;
 }
 
 .product-image{
@@ -98,7 +98,7 @@
 }
 
 .cart-controls button:hover{
-    background-color: #cb3e31;
+    background-color: #ff6f61;
 }
 
 .cart-controls span{

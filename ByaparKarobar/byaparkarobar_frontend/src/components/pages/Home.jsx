@@ -1,7 +1,7 @@
 import React, {use, useEffect, useState} from "react";
 import '../../style/home.css'
 // import './home.css'
-import { useLocation } from "react-router-dom";
+import { Navigate, useLocation, useNavigate } from "react-router-dom";
 import Pagination from "../common/Pagiination";
 import ApiService from "../../service/ApiService";
 import ProductList from "../common/ProductList";
@@ -13,7 +13,14 @@ const Home = () => {
     const [currentPage, setCurrentPage] = useState(1)
     const [totalPages, setTotalPages] = useState(0)
     const [error, setError] = useState(null)
-    const PRODUCTS_PER_PAGE = 10
+    const PRODUCTS_PER_PAGE = 10    
+
+    // const navigate = useNavigate()
+
+    // // Reset page on search change
+    // useEffect(() => {
+    //     setCurrentPage(1);
+    // }, [location.search]);
 
     useEffect(()=> {
         const fetchProducts = async () => {
@@ -32,6 +39,14 @@ const Home = () => {
                 }
                 setTotalPages(Math.ceil(allProducts.length / PRODUCTS_PER_PAGE))
                 setProducts(allProducts.slice((currentPage - 1) * PRODUCTS_PER_PAGE, currentPage * PRODUCTS_PER_PAGE))
+
+                
+                // if(!ApiService.isAuthenticated()) {
+                //     setTimeout(()=>{
+                //         navigate('/login')
+                //     },20000)
+                // }
+                
             } catch (error) {
                 setError(error.response?.data?.message || error.message || "Failed to fetch products. Please try again later.")
             }
