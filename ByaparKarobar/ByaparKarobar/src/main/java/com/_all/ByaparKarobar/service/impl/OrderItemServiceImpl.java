@@ -44,33 +44,34 @@ public class OrderItemServiceImpl implements OrderItemService {
 
         User user = userService.getLoginUser();
 
-        // map orderrequest items to order entities
+        // create order entity
+        Order order = new Order();
 
-        List<OrderItem> orderItemList = orderRequest.getItems().stream().map(orderItemRequest -> {
-            Product product = productRepo.findById(orderItemRequest.getProductId())
-                    .orElseThrow(()-> new NotFoundException("Product Not Found!"));
+        // map order request items to order item entities
+        orderRequest.getItems().forEach(orderItemRequest -> {
+                    Product product = productRepo.findById(orderItemRequest.getProductId())
+                            .orElseThrow(() -> new NotFoundException("Product Not Found!"));
 
-            OrderItem orderItem = new OrderItem();
-            orderItem.setProduct(product);
-            orderItem.setQuantity(orderItemRequest.getQuantity());
-            orderItem.setPrice(product.getPrice().multiply(BigDecimal.valueOf(orderItemRequest.getQuantity())));// set price according to quantity of products
-            orderItem.setStatus(OrderStatus.PENDING);
-            orderItem.setUser(user);
-            return orderItem;
-        }).toList();
-
+                    OrderItem orderItem = new OrderItem();
+                    orderItem.setProduct(product);
+                    orderItem.setQuantity(orderItemRequest.getQuantity());
+                    orderItem.setPrice(product.getPrice().multiply(BigDecimal.valueOf(orderItemRequest.getQuantity())));// set price according to quantity of products
+                    orderItem.setStatus(OrderStatus.PENDING);
+                    orderItem.setUser(user);
+                    order.addOrderItem(orderItem);// helper method
+        });
         // calculate the total price
         BigDecimal totalPrice = orderRequest.getTotalPrice() != null && orderRequest.getTotalPrice().compareTo(BigDecimal.ZERO) > 0
                 ? orderRequest.getTotalPrice()
-                : orderItemList.stream().map(OrderItem::getPrice).reduce(BigDecimal.ZERO, BigDecimal::add);
+                : order.getOrderItemList().stream().map(OrderItem::getPrice).reduce(BigDecimal.ZERO, BigDecimal::add);
 
-        // create order entity
-        Order order = new Order();
-        order.setOrderItemList(orderItemList);
+
         order.setTotalPrice(totalPrice);
+        // CascadeType.ALL saves OrderItems automatically
+        orderRepo.save(order);
 
-        // set the order reference in each order item
-        orderItemList.forEach(orderItem -> orderItem.setOrder(order));
+//        // set the order reference in each order item
+//        orderItemList.forEach(orderItem -> orderItem.setOrder(order));
 
         orderRepo.save(order);
         return Response.builder()

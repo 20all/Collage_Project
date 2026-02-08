@@ -13,6 +13,7 @@ import CategoryProductsPage from './components/pages/CategoryProductsPage'
 import CartPage from './components/pages/CartPage'
 import RegisterPage from './components/pages/RegisterPage'
 import LoginPage from './components/pages/LoginPage'
+import ProfilePage from './components/pages/ProfilePage'
 
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
             <Route path='/cart' element={<CartPage />} />
             <Route path='/register' element={<RegisterPage />} />
             <Route path='/login' element={<LoginPage />} />
+            <Route path='/profile' element={<ProfilePage />} />
           </Routes>
           <Footer />
         </CartProvider>

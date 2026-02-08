@@ -19,7 +19,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 public class AddressDto {
-    private long id;
+    private Long id;
     private String street;
     private String city;
     private String state;

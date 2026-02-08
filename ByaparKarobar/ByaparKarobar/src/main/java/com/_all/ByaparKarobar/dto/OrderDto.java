@@ -20,7 +20,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class OrderDto {
-    private long id;
+    private Long id;
     private BigDecimal totalPrice;
     private List<OrderItemDto> orderItemList;
     private LocalDateTime createdAt;

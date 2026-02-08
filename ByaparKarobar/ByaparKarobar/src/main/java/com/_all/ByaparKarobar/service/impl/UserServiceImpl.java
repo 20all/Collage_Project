@@ -3,6 +3,7 @@ package com._all.ByaparKarobar.service.impl;
 import com._all.ByaparKarobar.dto.LoginRequest;
 import com._all.ByaparKarobar.dto.Response;
 import com._all.ByaparKarobar.dto.UserDto;
+import com._all.ByaparKarobar.entity.Address;
 import com._all.ByaparKarobar.entity.User;
 import com._all.ByaparKarobar.enums.UserRole;
 import com._all.ByaparKarobar.exception.InvalidCredentialsException;
@@ -37,15 +38,38 @@ public class UserServiceImpl implements UserService {
         if (registrationRequest.getRole() != null && registrationRequest.getRole().equalsIgnoreCase("merchant")) {
             role = UserRole.MERCHANT;
         }
-        User user = User.builder()
-                .name(registrationRequest.getName())
-                .email(registrationRequest.getEmail())
-                .password(passwordEncoder.encode(registrationRequest.getPassword()))
-                .phoneNumber(registrationRequest.getPhoneNumber())
-                .role(role)
-                .build();
+//        User user = User.builder()
+//                .name(registrationRequest.getName())
+//                .email(registrationRequest.getEmail())
+//                .password(passwordEncoder.encode(registrationRequest.getPassword()))
+//                .phoneNumber(registrationRequest.getPhoneNumber())
+//                .role(role)
+//                .build();
 
+        // creating new user using setters
+        User user = new User();
+        user.setName(registrationRequest.getName());
+        user.setEmail(registrationRequest.getEmail());
+        user.setPassword(passwordEncoder.encode(registrationRequest.getPassword()));
+        user.setPhoneNumber(registrationRequest.getPhoneNumber());
+        user.setRole(role);
+
+        // Create empty Address and sync bidirectionally : Optional
+        if (registrationRequest.getAddress() != null) {
+            Address address = new Address();
+            address.setStreet(registrationRequest.getAddress().getStreet());
+            address.setCity(registrationRequest.getAddress().getCity());
+            address.setState(registrationRequest.getAddress().getState());
+            address.setZipCode(registrationRequest.getAddress().getZipCode());
+            address.setCountry(registrationRequest.getAddress().getCountry());
+
+            user.setAddress(address); // helper method syncs both sides
+        }
+
+        // save user(address will cascade automatically)
         User savedUser = userRepo.save(user);
+
+        // map to DTO
         UserDto userDto = entityDtoMapper.mapUserToDtoBasis(savedUser);
         return Response.builder()
                 .status(200)

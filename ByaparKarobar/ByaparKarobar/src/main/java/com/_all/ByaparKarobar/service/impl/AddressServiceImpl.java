@@ -26,7 +26,8 @@ public class AddressServiceImpl implements AddressService {
 
         if (address == null) {
             address = new Address();
-            address.setUser(user);
+//            address.setUser(user);
+            user.setAddress(address); // bidirectional helper syncs automatically
         }
         if (addressDto.getStreet() != null) address.setStreet(addressDto.getStreet());
         if (addressDto.getCity() != null) address.setCity(addressDto.getCity());
@@ -34,6 +35,7 @@ public class AddressServiceImpl implements AddressService {
         if (addressDto.getZipCode() != null) address.setZipCode(addressDto.getZipCode());
         if (addressDto.getCountry() != null) address.setCountry(addressDto.getCountry());
 
+        // Save only the owning side (Address) is fine, but user side is synced via helper
         addressRepo.save(address);
 
         String message = (user.getAddress() == null) ? "Address Successfully Created" : "Address successfully Updated";

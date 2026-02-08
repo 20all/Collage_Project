@@ -33,10 +33,10 @@ public class ProductController {
         return ResponseEntity.ok(productService.createProduct(categoryId, image, name, description, price));
     }
 
-    @PutMapping("/update/{productId}")
-    @PreAuthorize("hasAuthority('MERCHANT")
+    @PutMapping("/update")
+    @PreAuthorize("hasAuthority('MERCHANT')")
     public ResponseEntity<Response> updateProduct(
-            @PathVariable Long productId,
+            @RequestParam Long productId,
             @RequestParam(required = false) Long categoryId,
             @RequestParam(required = false) MultipartFile image,
             @RequestParam(required = false) String name,

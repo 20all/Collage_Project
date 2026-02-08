@@ -24,7 +24,7 @@ export default class ApiService {
     }
 
     static async getLoggedInUserInfo() {
-        const response = await axios.get(`${this.BASE_URL}/auth/my-info`, {
+        const response = await axios.get(`${this.BASE_URL}/user/my-info`, {
             headers: this.getHeader()
         })
         return response.data

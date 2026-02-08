@@ -9,5 +9,4 @@ public class ByaparKarobarApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(ByaparKarobarApplication.class, args);
 	}
-
 }

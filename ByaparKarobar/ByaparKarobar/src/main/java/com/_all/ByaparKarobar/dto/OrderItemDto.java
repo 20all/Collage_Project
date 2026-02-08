@@ -23,7 +23,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 public class OrderItemDto {
-    private long id;
+    private Long id;
     private int quantity;
     private BigDecimal price;
     private String status;
