@@ -68,7 +68,7 @@ const ProfilePage = () => {
                     </div>
                     <h3>Order History</h3>
                     <ul>
-                        {paginationOrders.map(order => {
+                        {paginationOrders.map(order => (
                             <li key={order.id}>
                                 <img src={order.product?.imageUrl} alt={order.product.name} />
                                 <div>
@@ -78,7 +78,7 @@ const ProfilePage = () => {
                                     <p><strong>Price: </strong>Rs. {order.price.toFixed(2)}</p>
                                 </div>
                             </li>
-                        })}
+                        ))}
                     </ul>
                     <Pagination 
                     currentPage={currentPage}
