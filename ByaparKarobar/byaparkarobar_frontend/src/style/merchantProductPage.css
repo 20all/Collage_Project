@@ -1,0 +1,76 @@
+.merchant-product-page {
+    width: 50%;
+    margin: 0 auto 50px auto;
+    align-items: center;
+    font-size: 16px;
+}
+
+.product-btn {
+    background-color: #ff6f61;
+    color: white;
+    padding: 10px 20px;
+    margin: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    /* width: 35%; */
+}
+
+.product-btn:hover {
+    background-color: #e65b50;
+    color: white;
+}
+
+.merchant-delete-btn {
+    background-color: red;
+    color: white;
+    padding: 10px 20px;
+    margin: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.merchant-delete-btn:hover {
+    background-color: darkred;
+}
+
+.merchant-product-page ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.merchant-product-page li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 5px 5px 5px 10px;
+}
+
+.merchant-product-page li:hover {
+    background-color: #f9f9f9;
+}
+
+.merchant-product-page h2 {
+    margin-bottom: 20px;
+    font-size: 28px;
+    color: #333;
+    text-align: left    ;
+}
+
+.merchant-product-page span {
+    font-size: 18px;
+    flex: 1;
+    color: #555;
+}
+
+.merchant-product-page button {
+    margin-left: 10px;
+}   

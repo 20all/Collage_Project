@@ -31,6 +31,7 @@ const MerchantCategoryPage = () => {
                 fetchCategories() // Refresh the category list after deletion
             } catch (error) {
                 console.log("Error deleting category!", error)
+                // setError(error.response?.data?.message || error.message || "Failed to delete category. Please try again later.")
             }
         }
     }
