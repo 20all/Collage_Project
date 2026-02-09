@@ -12,7 +12,7 @@ const ProfilePage = () => {
     const ITEMS_PER_PAGE = 5
     const navigate = useNavigate()
 
-    useEffect(()=>{
+    useEffect(() => {
         const fetchUserInfo = async () => {
             try {
                 const response = await ApiService.getLoggedInUserInfo()
@@ -22,9 +22,9 @@ const ProfilePage = () => {
             }
         }
         fetchUserInfo()
-    },[])
+    }, [])
 
-    if(!userInfo) {
+    if (!userInfo) {
         return <div>Loading.....</div>
     }
 
@@ -35,21 +35,36 @@ const ProfilePage = () => {
     const orderItemList = userInfo.orderItemList || []
     const totalPages = Math.ceil(orderItemList.length / ITEMS_PER_PAGE)
     const paginationOrders = orderItemList.slice(
-        (currentPage-1) * ITEMS_PER_PAGE,
-        currentPage * ITEMS_PER_PAGE    
+        (currentPage - 1) * ITEMS_PER_PAGE,
+        currentPage * ITEMS_PER_PAGE
     )
+
+    const handleLogout = () => {
+            const confirm = window.confirm("Are you sure you want to logout?")
+            if(confirm) {
+                ApiService.logout()
+                setTimeout(() => {
+                    navigate('/login')
+                }  , 500);
+            }
+        }
 
     return (
         <div className="profile-page">
             <h2>Welcome {userInfo.name}</h2>
             {error ? (
                 <p className="error-message">{error}</p>
-            ): (
+            ) : (
                 <div>
-                    <p><strong>Name: </strong>{userInfo.name}</p>
-                    <p><strong>Email: </strong>{userInfo.email}</p>
-                    <p><strong>PhoneNumber: </strong>{userInfo.phoneNumber}</p>
-                    <div>
+                    <div className="classic-userinfo">
+                        <div>
+                            <p><strong>Name: </strong>{userInfo.name}</p>
+                            <p><strong>Email: </strong>{userInfo.email}</p>
+                            <p><strong>PhoneNumber: </strong>{userInfo.phoneNumber}</p>
+                        </div>
+                        <button onClick={handleLogout}>Logout</button>
+                    </div>
+                    <div className="address-userinfo">
                         <h3>Address</h3>
                         {userInfo.address ? (
                             <div>
@@ -59,7 +74,7 @@ const ProfilePage = () => {
                                 <p><strong>Zip Code: </strong>{userInfo.address.zipcode}</p>
                                 <p><strong>Country: </strong>{userInfo.address.country}</p>
                             </div>
-                        ):(
+                        ) : (
                             <p>No Address information available !</p>
                         )}
                         <button className="profile-button" onClick={handleAddressClick}>
@@ -67,7 +82,7 @@ const ProfilePage = () => {
                         </button>
                     </div>
                     <h3>Order History</h3>
-                    <ul>
+                    <ul className="order-history">
                         {paginationOrders.map(order => (
                             <li key={order.id}>
                                 <img src={order.product?.imageUrl} alt={order.product.name} />
@@ -80,12 +95,13 @@ const ProfilePage = () => {
                             </li>
                         ))}
                     </ul>
-                    <Pagination 
-                    currentPage={currentPage}
-                    totalPages={totalPages}
-                    onPageChange={(page) => setCurrentPage(page)}
+                    <Pagination
+                        currentPage={currentPage}
+                        totalPages={totalPages}
+                        onPageChange={(page) => setCurrentPage(page)}
                     />
                 </div>
+                
             )}
         </div>
     )

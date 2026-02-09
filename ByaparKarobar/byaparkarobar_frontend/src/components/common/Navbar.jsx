@@ -17,15 +17,15 @@ const Navbar = () => {
         e.preventDefault()
         navigate(`/search?query=${searchValue}`)
     }
-    const handleLogout = () => {
-        const confirm = window.confirm("Are you sure you want to logout?")
-        if(confirm) {
-            ApiService.logout()
-            setTimeout(() => {
-                navigate('/login')
-            }  , 500);
-        }
-    }
+    // const handleLogout = () => {
+    //     const confirm = window.confirm("Are you sure you want to logout?")
+    //     if(confirm) {
+    //         ApiService.logout()
+    //         setTimeout(() => {
+    //             navigate('/login')
+    //         }  , 500);
+    //     }
+    // }
 
     return (
         <nav className="navbar">
@@ -49,7 +49,7 @@ const Navbar = () => {
                 {isAuthenticated && <NavLink to="/profile" className={({ isActive }) => (isActive ? "active" : "")}>My Account</NavLink>}
                 {isMerchant && <NavLink to="/merchant" className={({ isActive }) => (isActive ? "active" : "")}>Merchant</NavLink>}
                 {!isAuthenticated && <NavLink to="/login" className={({ isActive }) => (isActive ? "active" : "")}>Login</NavLink>}
-                {isAuthenticated && <NavLink onClick={handleLogout}>Logout</NavLink>}
+                {/* {isAuthenticated && <NavLink onClick={handleLogout}>Logout</NavLink>} */}
                 <NavLink to="/cart">Cart</NavLink>
             </div>
         </nav>

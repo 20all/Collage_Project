@@ -27,7 +27,7 @@ const RegisterPage = () => {
                 setMessage("User Successfully Registered")
                 setTimeout(()=>{
                     navigate('/login')
-                },4000)
+                },2000)
             }
         } catch (error) {
             setMessage(error.response?.data.message || error.message || "Unable to register a User")
@@ -37,19 +37,19 @@ const RegisterPage = () => {
     return (
         <div className="register-page">
             <h2>Register</h2>
-            {message && <p className="message">{message}</p>}
+            {message && <p className="message">{message}</p>} 
             <form action="" onSubmit={handleSubmit}>
                 <label htmlFor="email">Email: </label>
-                <input type="email" name="email" value={formData.email} onChange={handleChange} required />
+                <input type="email" name="email" id="email" value={formData.email} onChange={handleChange} required />
 
-                <label htmlFor="email">Name: </label>
-                <input type="text" name="name" value={formData.name} onChange={handleChange} required />
+                <label htmlFor="name">Name: </label>
+                <input type="text" name="name" id="name" value={formData.name} onChange={handleChange} required />
 
-                <label htmlFor="email">Phone: </label>
-                <input type="text" name="phoneNumber" value={formData.phoneNumber} onChange={handleChange} required />
+                <label htmlFor="phoneNumber">Phone: </label>
+                <input type="text" name="phoneNumber" id="phoneNumber" value={formData.phoneNumber} onChange={handleChange} required />
 
-                <label htmlFor="email">Password: </label>
-                <input type="password" name="password" value={formData.password} onChange={handleChange} required />
+                <label htmlFor="password">Password: </label>
+                <input type="password" name="password" id="password" value={formData.password} onChange={handleChange} required />
 
                 <button type="submit">Register</button>
                 <p className="register-link">

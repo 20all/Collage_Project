@@ -1,0 +1,30 @@
+.merchant-page {
+    margin-bottom: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.merchant-page h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.merchant-page button {
+    background-color: #ff6f61;
+    color: white;
+    padding: 10px 20px;
+    margin: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    width: 35%;
+} 
+
+.merchant-page button:hover {
+    background-color: #e65b50;
+}
