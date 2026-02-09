@@ -95,7 +95,7 @@ export default class ApiService {
     }
 
     static async getCategoryById(categoryId) {
-        const response = await axios.get(`${this.BASE_URL}/category/get-by-category-id/${categoryId}`)
+        const response = await axios.get(`${this.BASE_URL}/category/get-category-by-id/${categoryId}`)
         return response.data
     }
 

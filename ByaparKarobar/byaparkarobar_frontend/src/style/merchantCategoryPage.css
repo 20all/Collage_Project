@@ -16,7 +16,7 @@
 .merchant-category-list h2 {
     font-size: 28px;
     margin-bottom: 20px;
-    color: #333;
+    color: #444;
     text-align: left;
 }
 
@@ -50,21 +50,32 @@
 
 .merchant-category-list ul li {
     list-style-type: none;
-    padding: 10px 10px 10px 15px;
+    padding: 5px 5px 5px 10px;
     align-items: center;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     border-radius: 5px;
-    margin-bottom: 1.5px;
+    margin-bottom: 5px;
     border: 1px solid #ddd; 
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+.merchant-category-list li:hover {
+    /* background-color: #f9f9f9; */
+    transform: translateX(-1px);
 }
 
 .merchant-category-list span {
     display: block;
     font-size: 18px;
-    color: #333;
-    margin-bottom: 10px;
+    color: #222;
+    margin: 5px 0 0 0;
+}
+
+.merchant-btn {
+    display: flex;
+    gap: 0.1rem;
+    padding: 0 4px;
 }
 
 .merchant-btn button {
@@ -72,6 +83,7 @@
     font-size: 13px;
     margin-left: 10px;
     padding: 4px 10px;
+    width: 39%;
 }
 
 .merchant-btn .merchant-edit-btn {

@@ -7,6 +7,7 @@ import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.OneToMany;
+import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -21,6 +22,7 @@ import java.util.List;
 @NoArgsConstructor
 public class CategoryDto {
     private Long id;
+    @NotBlank(message = "Category name is required")
     private String name;
     private List<ProductDto> productList;
 //    private LocalDateTime createdAt;

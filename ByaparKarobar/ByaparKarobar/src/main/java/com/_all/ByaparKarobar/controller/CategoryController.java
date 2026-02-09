@@ -3,6 +3,7 @@ package com._all.ByaparKarobar.controller;
 import com._all.ByaparKarobar.dto.CategoryDto;
 import com._all.ByaparKarobar.dto.Response;
 import com._all.ByaparKarobar.service.interf.CategoryService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -17,7 +18,7 @@ public class CategoryController {
 
     @PostMapping("/create")
     @PreAuthorize("hasAuthority('MERCHANT')")
-    public ResponseEntity<Response> createCategory(@RequestBody CategoryDto categoryDto) {
+    public ResponseEntity<Response> createCategory(@Valid @RequestBody CategoryDto categoryDto) {
         return ResponseEntity.ok(categoryService.createCategory(categoryDto));
     }
 

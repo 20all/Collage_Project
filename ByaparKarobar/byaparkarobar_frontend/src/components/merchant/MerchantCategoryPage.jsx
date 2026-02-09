@@ -8,23 +8,24 @@ const MerchantCategoryPage = () => {
     const [categories, setCategories] = useState([])
     const navigate = useNavigate()
 
-    useEffect(()=> {
-        const fetchCategories = async ()=> {
-            try {
-                const response = await ApiService.getAllCategory()
-                setCategories(response.categoryList || [])
-            } catch (error) {
-                console.log("Error Fetching list of categories!",error)
-            }
-        }
+    useEffect(() => {
+
         fetchCategories()
     })
+    const fetchCategories = async () => {
+        try {
+            const response = await ApiService.getAllCategory()
+            setCategories(response.categoryList || [])
+        } catch (error) {
+            console.log("Error Fetching list of categories!", error)
+        }
+    }
     const handleEdit = async (id) => {
         navigate(`/merchant/edit-category/${id}`)
     }
     const handleDelete = async (id) => {
         const confirmDelete = window.confirm("Are you sure you want to delete this category?")
-        if(confirmDelete) {
+        if (confirmDelete) {
             try {
                 await ApiService.deleteCategory(id)
                 fetchCategories() // Refresh the category list after deletion
