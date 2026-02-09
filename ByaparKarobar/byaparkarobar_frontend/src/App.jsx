@@ -16,6 +16,8 @@ import LoginPage from './components/pages/LoginPage'
 import ProfilePage from './components/pages/ProfilePage'
 import AddressPage from './components/pages/AddressPage'
 import MerchantPage from './components/merchant/MerchantPage'
+import MerchantCategory from './components/merchant/MerchantCategoryPage'
+import MerchantCategoryPage from './components/merchant/MerchantCategoryPage'
 
 
 function App() {
@@ -46,6 +48,7 @@ function App() {
             <Route path='/edit-address' element={<ProtectedRoute><AddressPage /></ProtectedRoute>} />
 
             <Route path='/merchant' element={<MerchantRoute element={<MerchantPage />} />} />
+            <Route path='/merchant/categories' element={<MerchantRoute element={<MerchantCategoryPage />} />} />
 
           </Routes>
           <Footer />
