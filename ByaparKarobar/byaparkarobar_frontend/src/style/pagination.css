@@ -23,3 +23,13 @@
 .pagination button:hover {
     background-color: #ff6f61;
 }
+
+.pagination button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.pagination .active {
+    background-color: #007bff;
+    color: white;
+}

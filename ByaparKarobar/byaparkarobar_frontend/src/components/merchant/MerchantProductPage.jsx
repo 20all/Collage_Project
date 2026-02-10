@@ -6,21 +6,38 @@ import Pagination from '../common/Pagiination'
 
 const MerchantProductPage = () => {
     const [products, setProducts] = useState([])
+    const [allProducts, setAllProducts] = useState([])
     const [currentPage, setCurrentPage] = useState(1)
-        const [totalPages, setTotalPages] = useState(0)
-        const [error, setError] = useState(null)
-        const PRODUCTS_PER_PAGE = 10  
+    const [totalPages, setTotalPages] = useState(0)
+    const [error, setError] = useState(null)
+    // const PRODUCTS_PER_PAGE = 5
+    const [productsPerPage, setProductsPerPage] = useState(5)
     const navigate = useNavigate()
 
     useEffect(() => {
         fetchProducts()
     }, [])
+
+    useEffect(() => {
+        const start = (currentPage - 1) * productsPerPage
+        const end = start + productsPerPage
+        setProducts(allProducts.slice(start, end))
+    }, [currentPage, allProducts, productsPerPage])
+
+    useEffect(() => {
+        setTotalPages(Math.ceil(allProducts.length / productsPerPage))
+        if (currentPage > Math.ceil(allProducts.length / productsPerPage)) {
+            setCurrentPage(1) // Reset to first page if current page exceeds total pages
+        }
+    }, [productsPerPage, allProducts])
+
     const fetchProducts = async () => {
         try {
             const response = await ApiService.getAllProducts()
-            const allProducts = response.productList || []
-            setTotalPages(Math.ceil(allProducts.length / PRODUCTS_PER_PAGE))
-            setProducts(allProducts.slice((currentPage - 1) * PRODUCTS_PER_PAGE, currentPage * PRODUCTS_PER_PAGE))
+            const productList = response.productList || []
+            setTotalPages(Math.ceil(productList.length / productsPerPage))
+            // setProducts(allProducts.slice((currentPage - 1) * PRODUCTS_PER_PAGE, currentPage * PRODUCTS_PER_PAGE))
+            setAllProducts(productList)
         } catch (error) {
             console.log("Error Fetching list of products!", error)
             setError(error.response?.data?.message || error.message || "Failed to fetch products. Please try again later.")
@@ -36,7 +53,7 @@ const MerchantProductPage = () => {
                 await ApiService.deleteProduct(id)
                 fetchProducts() // Refresh the product list after deletion
             } catch (error) {
-            setError(error.response?.data?.message || error.message || "Failed to delete products. Please try again later.")
+                setError(error.response?.data?.message || error.message || "Failed to delete products. Please try again later.")
                 console.log("Error deleting product!", error)
             }
         }
@@ -48,23 +65,37 @@ const MerchantProductPage = () => {
                 <p className='error-message'>{error}</p>
             ) : (
                 <div>
-                    <h2>Products</h2>
+                    <div className="header">
+                        <h2>Products</h2>
+                        <div className="page-size">
+                            <label htmlFor='page-size-value'>Products per page: </label>
+                            <select
+                                id='page-size-value'
+                                value={productsPerPage}
+                                onChange={(e) => setProductsPerPage(Number(e.target.value))}
+                            >
+                                <option value={5}>5</option>
+                                <option value={10}>10</option>
+                                <option value={20}>20</option>
+                            </select>
+                        </div>
+                    </div>
                     <button className='product-btn' onClick={() => navigate('/merchant/add-product')}>Add Product</button>
                     <ul>
                         {products.map((product) => (
                             <li key={product.id}>
                                 <span>{product.name}</span>
                                 {/* <div className="merchant-btn"> */}
-                                    <button className='product-btn' onClick={() => handleEdit(product.id)}>Edit</button>
-                                    <button className='merchant-delete-btn' onClick={() => handleDelete(product.id)}>Delete</button>
+                                <button className='product-btn' onClick={() => handleEdit(product.id)}>Edit</button>
+                                <button className='merchant-delete-btn' onClick={() => handleDelete(product.id)}>Delete</button>
                                 {/* </div> */}
                             </li>
                         ))}
                     </ul>
                     <Pagination
-                    currentPage={currentPage} 
-                    totalPages={totalPages} 
-                    onPageChange={(page) => setCurrentPage(page)} />
+                        currentPage={currentPage}
+                        totalPages={totalPages}
+                        onPageChange={(page) => setCurrentPage(page)} />
                 </div>
             )}
         </div>

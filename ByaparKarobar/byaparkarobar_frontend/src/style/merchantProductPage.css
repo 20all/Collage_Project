@@ -35,6 +35,33 @@
     font-weight: 600;
 }
 
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #333;
+}
+
+.page-size {
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    margin: 0 10px;
+    font-weight: 600;
+}
+
+.page-size label {
+    margin-right: 10px; 
+    color: #555;
+}
+
+.page-size select {
+    padding: 1px 4px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #ff6f61;
+}
+
 .merchant-delete-btn:hover {
     background-color: darkred;
 }
