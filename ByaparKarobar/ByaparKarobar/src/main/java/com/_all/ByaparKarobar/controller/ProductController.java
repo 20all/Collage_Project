@@ -4,6 +4,7 @@ import com._all.ByaparKarobar.dto.Response;
 import com._all.ByaparKarobar.exception.InvalidCredentialsException;
 import com._all.ByaparKarobar.service.interf.ProductService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
@@ -33,6 +34,7 @@ public class ProductController {
         return ResponseEntity.ok(productService.createProduct(categoryId, image, name, description, price));
     }
 
+//    @PutMapping(value = "/update/{productId}", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     @PutMapping("/update")
     @PreAuthorize("hasAuthority('MERCHANT')")
     public ResponseEntity<Response> updateProduct(

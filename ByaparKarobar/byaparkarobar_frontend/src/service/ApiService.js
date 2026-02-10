@@ -42,8 +42,8 @@ export default class ApiService {
         return response.data
     }
 
-    static async updateProduct(productId, fromData) {
-        const response = await axios.put(`${this.BASE_URL}/product/update/${productId}`, fromData, {
+    static async updateProduct(fromData) {
+        const response = await axios.put(`${this.BASE_URL}/product/update`, fromData, {
             headers: {
                 ...this.getHeader(),
                 "Content-Type": "multipart/form-data"
