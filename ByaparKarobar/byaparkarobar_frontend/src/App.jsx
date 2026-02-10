@@ -23,6 +23,7 @@ import EditCategory from './components/merchant/EditCategory'
 import MerchantProductPage from './components/merchant/MerchantProductPage'
 import AddProductPage from './components/merchant/AddProductPage'
 import EditProductPage from './components/merchant/EditProductPage'
+import MerchantOrdersPage from './components/merchant/MerchantOrdersPage'
 
 
 function App() {
@@ -59,6 +60,8 @@ function App() {
             <Route path='/merchant/products' element={<MerchantRoute element={<MerchantProductPage />} />} />
             <Route path='/merchant/add-product' element={<MerchantRoute element={<AddProductPage />} />} />
             <Route path='/merchant/edit-product/:productId' element={<MerchantRoute element={<EditProductPage />} />} />
+
+            <Route path='/merchant/orders' element={<MerchantRoute element={<MerchantOrdersPage />} />} />
 
           </Routes>
           <Footer />
