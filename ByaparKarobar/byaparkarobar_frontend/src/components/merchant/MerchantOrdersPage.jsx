@@ -32,7 +32,7 @@ const MerchantOrdersPage = () => {
             } else {
                 response = await ApiService.getAllOrders()
             }
-            const orderList = response.orderList || []
+            const orderList = response.orderItemList || []
             setTotalPages(Math.ceil(orderList.length / ORDERS_PER_PAGE))
             setOrders(orderList)
             setFilteredOrders(orderList.slice((currentPage - 1) * ORDERS_PER_PAGE, currentPage * ORDERS_PER_PAGE))
@@ -108,8 +108,8 @@ const MerchantOrdersPage = () => {
                         filteredOrders.map(order => (
                             <tr key={order.id}>
                                 <td>{order.id}</td>
-                                <td>{order.customerName}</td>
-                                <td>${order.totalAmount.toFixed(2)}</td>
+                                <td>{order.user?.name}</td>
+                                <td>Rs. {order.price.toFixed(2)}</td>
                                 <td>{order.status}</td>
                                 <td>{new Date(order.createdAt).toLocaleDateString()}</td>
                                 <td><button onClick={() => handleOrderDetails(order.id)}>View Details</button></td>

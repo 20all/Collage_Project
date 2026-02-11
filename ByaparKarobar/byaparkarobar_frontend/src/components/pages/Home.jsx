@@ -6,6 +6,7 @@ import Pagination from "../common/Pagiination";
 import ApiService from "../../service/ApiService";
 import ProductList from "../common/ProductList";
 // import {No_Connection_error} from '../public/serverNotConnected.png'
+import NoConnectionImage from '../../assets/serverNotConnected.png'
 
 const Home = () => {
     const location = useLocation()
@@ -59,7 +60,7 @@ const Home = () => {
             {
                 error ? (
                     <div className="error-container">
-                    <img src="./serverNotConnected.png" alt="Connection Failed" className="error-image"/>
+                    <img src={NoConnectionImage} alt="Connection Failed" className="error-image"/>
                     <p className="error-message">{error}</p>
                     </div>
                 ) : (

@@ -71,8 +71,8 @@
     text-transform: capitalize;
     font-weight: bold;
 }
-
-/* .order-table .status.PENDING {
+/* 
+.order-table .status.PENDING {
     color: orange;
 }
 .order-table .status.CONFIRMED {
@@ -107,10 +107,10 @@ tbody button {
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    background-color: #007bff;
+    background-color: #ff6f61;
     color: white;
 }
 
 tbody button:hover {
-    background-color: #0056b3;
+    background-color: #e65b50;
 }

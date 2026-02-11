@@ -58,7 +58,7 @@ export default class ApiService {
     }
 
     static async searchProducts(searchValue) {
-        const response = await axios.get(`${this.BASE_URL}/product/search`, {
+        const response = await axios.get(`${this.BASE_URL}/product/search/${searchValue}`, {
             params: {searchValue}
         })
         return response.data
