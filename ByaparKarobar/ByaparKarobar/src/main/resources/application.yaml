@@ -1,33 +1,8 @@
 spring:
   application:
-    name: ByaparKarobar
+    name: auth-app-backend
+  profiles:
+    active: prod
 
-# database connection
-  datasource:
-    url: jdbc:postgresql://localhost:5432/bk_app
-    username: postgres
-    password: bishal
-
-  jpa:
-    show-sql: true
-    hibernate:
-      ddl-auto: update
-      dialect: org.hibernate.dialect.PostgreSQLDialect
-      format-sql: true
-
-logging:
-  level:
-    org.springframework.web: DEBUG
 server:
-  port: 9090
-
-
-security:
-  jwt:
-    secret: "cad9189b04e53704948adff7261904392b7ac1a95daac89183a3cd99c9ea404dd7d07ee71e5f014f9c75cc949b7f45d51e40c8de22b95f33e5cdaaabcc6645ef"  # secret jwt string key( create a "$JWT_SECRET" environment variable for security measures, this key is available for all those who can access this file)
-
-
-cloudinary:
-  cloud-name: dzi8g0lzi
-  api-key: 285129915792497
-  api-secret: r8MTHDMe607YKbbDQIX_iRowLdY
+  port: ${PORT:8080}
