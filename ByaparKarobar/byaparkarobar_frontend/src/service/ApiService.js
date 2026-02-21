@@ -1,7 +1,8 @@
 import axios from "axios";
 
 export default class ApiService {
-    static BASE_URL = "http://localhost:9090" // maked it http because https was giving issues with network error i think due to ssl certificate(spring boot backend is only making http server)
+    // static BASE_URL = "http://localhost:9090" // maked it http because https was giving issues with network error i think due to ssl certificate(spring boot backend is only making http server)
+    static BASE_URL = import.meta.env.VITE_API_URL
 
     static getHeader() {
         const token = localStorage.getItem("token")
